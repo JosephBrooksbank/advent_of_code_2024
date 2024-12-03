@@ -5,4 +5,7 @@ mod utils;
 fn main() {
     let day_1_solution = days::day_1::day_1_full();
     println!("{}", format!("Day 1 Distance: {:#?}", day_1_solution ));
+
+    let day_2_solution = days::day_2::day_2_full();
+    println!("Day 2 solution is {day_2_solution}");
 }

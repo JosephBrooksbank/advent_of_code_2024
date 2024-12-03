@@ -1,4 +1,5 @@
 ﻿use crate::utils::file_helpers::{read_full_file, read_sample_file};
+use crate::utils::string_helpers::string_to_numbers;
 
 #[derive(Debug)]
 pub struct Day1Data {
@@ -33,7 +34,7 @@ fn get_lists(lines: &Vec<String>) -> (Vec<usize>, Vec<usize>) {
     let mut second_list: Vec<usize> = vec![];
 
     for line in lines {
-        let numbers : Vec<usize> = line.split("   ").map(|s| s.parse::<usize>().unwrap()).collect();
+        let numbers : Vec<usize> = string_to_numbers(line, "   ");
         first_list.push(numbers[0]);
         second_list.push(numbers[1]);
     }
@@ -83,8 +84,8 @@ mod tests {
 
     #[test]
     fn sample_should_be_11() {
-        let distance = day_1_sample();
-        assert_eq!(distance, 11);
+        let data = day_1_sample();
+        assert_eq!(data.total_distance, 11);
     }
 
 }
