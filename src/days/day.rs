@@ -1,6 +1,7 @@
-﻿use crate::utils::file_helpers::{read_full_file, read_sample_file};
+﻿use std::fmt::Debug;
+use crate::utils::file_helpers::{read_full_file, read_sample_file};
 
-pub trait Day<T> {
+pub trait Day<T: Debug> {
     fn id(&self) -> &'static str;
 
     fn run(&self, lines: Vec<String>) -> T;
@@ -11,7 +12,9 @@ pub trait Day<T> {
     }
     fn run_full(&self) -> T {
         let lines = read_full_file(self.id()).unwrap();
-        self.run(lines)
+        let result = self.run(lines);
+        println!("{} solution is {:?}", self.id(), result);
+        result
     }
 }
 

@@ -11,6 +11,9 @@ fn main() {
     println!("Day 2 solution is {day_2_solution}");
 
     let day3 = day_3::Day3;
-    let day_3_solution = day3.run_full();
-    println!("Day 3 solution is {day_3_solution}");
+    day3.run_full();
+
+    let day4 = day_4::Day4;
+    day4.run_full();
+
 }
